@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="540.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GameController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="497.0" prefWidth="655.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView fitHeight="385.0" fitWidth="780.0" layoutX="-18.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ground.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="24.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:" />
+            <Text layoutX="148.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elixir:" />
+            <Text layoutX="518.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crowns Won:" />
+            <Label fx:id="elixirLabel" layoutX="193.0" layoutY="13.0" text="0" />
+            <Label fx:id="crownLabel" layoutX="606.0" layoutY="14.0" text="0" />
+            <Label fx:id="timeLabel" layoutX="75.0" layoutY="13.0" text="3:00" />
+            <ProgressBar fx:id="elixirBar" layoutX="244.0" layoutY="13.0" prefWidth="200.0" progress="0.0" />
+            <ImageView fx:id="gameDeck2" fitHeight="66.0" fitWidth="59.0" layoutX="61.0" layoutY="433.0" onMouseClicked="#gameDeck2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../frame.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="gameDeck3" fitHeight="66.0" fitWidth="55.0" layoutX="121.0" layoutY="433.0" onMouseClicked="#gameDeck3" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../frame.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="gameDeck4" fitHeight="66.0" fitWidth="55.0" layoutX="182.0" layoutY="433.0" onMouseClicked="#gameDeck4" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../frame.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="gameDeck1" fitHeight="66.0" fitWidth="55.0" layoutX="6.0" layoutY="433.0" onMouseClicked="#gameDeck1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../frame.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="gameDeck5" fitHeight="43.0" fitWidth="34.0" layoutX="244.0" layoutY="445.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../frame.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="game" layoutX="453.0" layoutY="9.0" mnemonicParsing="false" onAction="#game" text="Game" />
+            <Text layoutX="344.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chosen Card:" wrappingWidth="87.63428658246994" />
+            <ImageView fx:id="chosenCardImage" fitHeight="66.0" fitWidth="55.0" layoutX="444.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../frame.png" />
+               </image>
+            </ImageView>
+            <Pane fx:id="mainPane" layoutX="55.0" layoutY="94.0" onMouseClicked="#dropCard" prefHeight="272.0" prefWidth="238.0">
+               <children>
+                  <Canvas fx:id="canvas" height="385.0" layoutX="-56.0" layoutY="-47.0" width="655.0" />
+               </children>
+            </Pane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
